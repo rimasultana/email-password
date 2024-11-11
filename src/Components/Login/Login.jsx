@@ -1,4 +1,7 @@
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import auth from "../../firebase.init";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,7 +10,7 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
   const [loginError, setLoginError] = useState();
   const emailRef = useRef();
-  
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -85,7 +88,9 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          {success && <p className="text-green-600">User logged in successfully!</p>}
+          {success && (
+            <p className="text-green-600">User logged in successfully!</p>
+          )}
           {loginError && <p className="text-red-600">{loginError}</p>}
           <p className="text-center">
             New to this website?{" "}
